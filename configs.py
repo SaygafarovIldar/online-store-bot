@@ -1,3 +1,5 @@
+import os
+
 import psycopg2 as sql
 
 CATEGORIES ={
@@ -25,10 +27,7 @@ PAYME_TOKEN = ''
 MAX_QUANTITY = 3
 
 database = sql.connect(
-    database='onlineStore',
-    host='localhost',
-    user='postgres',
-    password='123456'
+    os.getenv("DATABASE_URL")
 )
 
 cursor = database.cursor()
